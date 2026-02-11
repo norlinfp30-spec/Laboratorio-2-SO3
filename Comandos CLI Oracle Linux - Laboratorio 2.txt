@@ -1,3 +1,4 @@
+Práctica 1
 # Actualizar repositorios y paquetes
 sudo dnf update -y
 sudo dnf upgrade -y
@@ -23,4 +24,7 @@ make uninstall
 rm -rf ~/.config/bashtop
 
 # Eliminar dependencias no usadas
+
 sudo dnf autoremove -y
+
+Practica 2 
