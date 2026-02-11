@@ -1,0 +1,26 @@
+# Actualizar repositorios y paquetes
+sudo dnf update -y
+sudo dnf upgrade -y
+
+# Enumerar los repositorios activos
+sudo dnf repolist
+# Para verlos todos
+sudo dnf repolist all
+
+# Buscar la herramienta en el caché del repositorio
+sudo dnf search bashtop
+
+# Agregar repositorio y/o instalar Bashtop
+git clone https://github.com/aristocratos/bashtop.git
+cd bashtop
+make install
+
+# Presentar la herramienta
+./bashtop
+
+# Desinstalar y eliminar archivos de configuración
+make uninstall
+rm -rf ~/.config/bashtop
+
+# Eliminar dependencias no usadas
+sudo dnf autoremove -y
