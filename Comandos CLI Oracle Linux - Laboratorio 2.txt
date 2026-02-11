@@ -28,3 +28,28 @@ rm -rf ~/.config/bashtop
 sudo dnf autoremove -y
 
 Practica 2 
+# Crear trabajo cron para actualizar el sistema a las 11 p.m.
+# edita el cron del root
+sudo crontab -e
+# agrega la linea de comandos
+0 23 * * * dnf -y update && dnf -y upgrade
+
+# Reinicio automático todos los domingos a las 3 a.m.
+# en el mismo crontab
+0 3 * * 0 /sbin/reboot
+
+# Crear tarea programada con at
+# Primero, habilita el servicio atd
+sudo systemctl enable --now atd
+# Ahora programa la tarea
+sudo at now + 1 minute
+# Dentro del prompt de at>, escribe:
+rm -rf /tmp/*
+# ctrl + d guardar y salir
+# Verifica las tareas pendientes
+atq
+# Muestra el contenido antes y después
+ls /tmp
+# Espera 1 min
+ls /tmp
+
