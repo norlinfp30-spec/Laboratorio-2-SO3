@@ -52,4 +52,7 @@ atq
 ls /tmp
 # Espera 1 min
 ls /tmp
+Practica 3
+
+
 
