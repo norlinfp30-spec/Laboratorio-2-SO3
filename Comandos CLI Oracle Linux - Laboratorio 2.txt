@@ -52,7 +52,46 @@ atq
 ls /tmp
 # Espera 1 min
 ls /tmp
+
 Practica 3
+# Gestión de Discos y Montajes
+
+# Agregar un nuevo disco de 20GB
+# Reinicia el sistema y comprueba que fue detectado
+sudo fdisk -l
+
+# Crear una partición ext4
+sudo fdisk /dev/sdb
+# Dentro del menú de fdisk
+n  (crear nueva partición)
+p  (primaria)
+1  (número de partición)
+Enter (usar inicio por defecto)
+Enter (usar final por defecto)
+w  (guardar y salir)
+
+# Fomatear
+sudo mkfs.ext4 /dev/sdb1
+
+# Montarlo en una carpeta del escritorio
+# Crear carpeta
+mkdir ~/Escritorio/DiscoNuevo
+sudo mount /dev/sdb1 ~/Escritorio/DiscoNuevo
+# Verificar el montaje
+df -h
+
+# Crear archivo dentro del disco montado
+cd ~/Escritorio/DiscoNuevo
+sudo touch AdrianAlcantara.txt
+ls
+
+# Desmontar y volver a montar en /mnt
+sudo umount ~/Escritorio/DiscoNuevo
+sudo mount /dev/sdb1 /mnt
+# Verificar que el archivo siga ahí
+cd /mnt
+ls
+
 
 
 
